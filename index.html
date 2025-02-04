@@ -4,35 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiet Place Finder</title>
+    <link rel="stylesheet" href="stylesheets/index.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        #map { height: 400px; width: 100%; }
-    </style>
 </head>
 <body>
-    <h2>Find a Quiet Place Near You</h2>
-    <button onclick="getLocation()">Find My Location</button>
-    <div id="map"></div>
+    <header>
+        <h1>Quiet Place Finder</h1>
+    </header>
+    <main>
+        <section class="search-section">
+            <h2>Discover Peaceful Locations Near You</h2>
+            <p class="description">
+                Our tool helps you find calm places or check noise levels in any location. Start your search for peace today!
+            </p>
+            <div class="location-controls">
+                <button class="primary-btn" onclick="getLocation()">📍 Use My Location</button>
+                <input type="text" id="location-input" placeholder="Enter a location">
+                <button class="primary-btn" onclick="fetchNoiseForLocation()">🌐 Check Noise Level</button>
+            </div>
+        </section>
+        <section id="map-container">
+            <h3>Map</h3>
+            <div id="map"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Quiet Place Finder. Crafted with ❤️ for your peace of mind.</p>
+    </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        let map = L.map('map').setView([20.5937, 78.9629], 5); // Default India location
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function showPosition(position) {
-            let lat = position.coords.latitude;
-            let lon = position.coords.longitude;
-            map.setView([lat, lon], 13);
-            L.marker([lat, lon]).addTo(map).bindPopup("You are here!").openPopup();
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
