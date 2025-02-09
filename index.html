@@ -8,28 +8,23 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-    <header>
-        <h1>Quiet Place Finder</h1>
-    </header>
-    <main>
-        <section class="search-section">
-            <h2>Discover Peaceful Locations Near You</h2>
-            <p class="description">
-                Our tool helps you find calm places or check noise levels in any location. Start your search for peace today!
-            </p>
-            <div class="location-controls">
-                <button class="primary-btn" onclick="getLocation()">📍 Use My Location</button>
-                <input type="text" id="location-input" placeholder="Enter a location">
-                <button class="primary-btn" onclick="fetchNoiseForLocation()">🌐 Check Noise Level</button>
-            </div>
-        </section>
-        <section id="map-container">
-            <h3>Map</h3>
-            <div id="map"></div>
-        </section>
-    </main>
+    <h2>Find a Quiet Place Near You</h2>
+    
+    <button onclick="getLocation()">Find My Location</button>
+    <br>
+    
+    <div class="input-container">
+        <input type="text" id="location-input" placeholder="Enter a location">
+        <button onclick="goToEnteredLocation()">Go to Location</button>
+    </div>
+
+    <button onclick="fetchNoiseForLocation()">Check Noise Level</button>
+    <button onclick="findQuietPlaces()">Find Quiet Places</button>
+    
+    <div id="map"></div>
+
     <footer>
-        <p>&copy; 2025 Quiet Place Finder. Crafted with ❤️ for your peace of mind.</p>
+        <p>&copy; 2025 Quiet Place Finder. All Rights Reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
