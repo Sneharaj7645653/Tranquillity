@@ -71,10 +71,20 @@ const API_KEY = "f0d392a5cfbb84601dff2507b0b7f4764bcd3dfb";
 // Function to fetch air quality for a specific location
 function fetchAirQualityForLocation() {
     const locationInput = document.getElementById("location-input").value;
-    if (!locationInput) {
-        alert("Please enter a location.");
+
+    // If no location input, use current marker's coordinates
+    if (!locationInput && currentMarker) {
+        const { lat, lng } = currentMarker.getLatLng(); // Get coordinates from the marker
+        fetchAirQualityByCoordinates(lat, lng); // Fetch air quality by coordinates
         return;
     }
+
+    // If location input is provided, fetch air quality by location name
+    if (!locationInput) {
+        alert("Please enter a location or use 'Find My Location' first.");
+        return;
+    }
+
 
     const url = `https://api.waqi.info/feed/${encodeURIComponent(locationInput)}/?token=${API_KEY}`;
 
@@ -106,7 +116,33 @@ function fetchAirQualityForLocation() {
             alert("Unable to fetch air quality. Please try again later.");
         });
 }
+// Function to fetch air quality data by coordinates
+function fetchAirQualityByCoordinates(lat, lng) {
+    const url = `https://api.waqi.info/feed/geo:${lat};${lng}/?token=${API_KEY}`;
 
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === "ok" && data.data.aqi) {
+                const { aqi } = data.data;
+
+                // Update map and marker
+                if (currentMarker) {
+                    map.removeLayer(currentMarker);
+                }
+                currentMarker = L.marker([lat, lng])
+                    .addTo(map)
+                    .bindPopup(`Air Quality Index (AQI): ${aqi}`)
+                    .openPopup();
+            } else {
+                alert("No air quality data available for this location.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching air quality data:", error);
+            alert("Unable to fetch air quality. Please try again later.");
+        });
+}
 // Haversine formula to calculate distance between two lat/lon points
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radius of the Earth in km

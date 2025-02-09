@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- 
+    Specifies the document type (HTML5).
+    Declares the language as English for accessibility and SEO. 
+    -->
     <meta charset="UTF-8">
+    <!-- 
+    Ensures the page is mobile-friendly by setting the viewport to the device's width.
+    Provides better scaling on small screens. 
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Air Quality Finder</title>
+    
+    <!-- Linking the external stylesheet for custom styles -->
     <link rel="stylesheet" href="stylesheets/index.css" />
+    <!-- Linking Leaflet.js CSS for rendering maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
+    <!-- Main Heading -->
     <h2>Find the Air Quality Near You</h2>
     
+    <!-- Button to automatically detect the user's current location -->
     <button onclick="getLocation()">Find My Location</button>
     <br>
     
+    <!-- Container for user input to manually enter a location -->
     <div class="input-container">
         <input type="text" id="location-input" placeholder="Enter a location">
+        <!-- Button to navigate to the entered location on the map -->
         <button onclick="goToEnteredLocation()">Go to Location</button>
     </div>
 
+    <!-- Buttons for fetching air quality data and finding cleaner air nearby -->
     <button onclick="fetchAirQualityForLocation()">Check Air Quality</button>
     <button onclick="findCleanAirLocations()">Find Clean Air Places Near</button>
     
+    <!-- Div element where the map will be rendered -->
     <div id="map"></div>
 
+    <!-- Footer section for additional information -->
     <footer>
         <p>&copy; 2025 Air Quality Finder. All Rights Reserved.</p>
     </footer>
 
+    <!-- 
+    Including Leaflet.js library for handling map functionalities.
+    The JavaScript file `index.js` contains the custom logic for the application. 
+    -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="index.js"></script>
 </body>
