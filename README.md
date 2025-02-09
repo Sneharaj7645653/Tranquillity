@@ -1,7 +1,7 @@
 # Tranquillity: Clean Air Locator
 
 ## Overview
-The **Tranquillity: Clean Air Locator** is a web application that helps users find and navigate to nearby locations with better air quality. Using real-time air quality data from APIs, the application provides a curated list of cleaner locations sorted by distance. With integrated Google Maps navigation, users can seamlessly get directions from their current location to a selected cleaner spot, promoting a healthier lifestyle.
+The **Tranquillity: Clean Air Locator** is a web application that helps users find and navigate to nearby locations with better air quality. Using real-time air quality data from APIs, the application provides a curated list of cleaner locations with distance. With integrated Google Maps navigation, users can seamlessly get directions from their current location to a selected cleaner spot, promoting a healthier lifestyle.
 
 ## Features
 - **Real-Time Air Quality Data**: Fetches live air quality data from reliable APIs.
