@@ -1,55 +1,48 @@
-# Tranquillity
+# Tranquillity: Clean Air Locator
 
-This web application allows users to record and view real-time noise levels of specific locations. By inputting a location, users can see color-coded markers on an interactive map based on noise intensity. The app also recommends nearby quiet spots like parks or libraries for a peaceful escape.
+## Overview
+The **Tranquillity: Clean Air Locator** is a web application that helps users find and navigate to nearby locations with better air quality. Using real-time air quality data from APIs and user input, the application provides a curated list of cleaner locations sorted by distance. With integrated Google Maps navigation, users can seamlessly get directions from their current location to a selected cleaner spot, promoting a healthier lifestyle.
 
 ## Features
+- **Real-Time Air Quality Data**: Fetches live air quality data from reliable APIs.
+- **Geolocation-Based Recommendations**: Displays nearby locations with better air quality based on user input.
+- **Navigation Support**: Allows users to start navigation directly to the selected location via Google Maps.
+- **Dynamic List Updates**: Automatically updates the list when a new location is entered, ensuring a clean and accurate display.
 
-- **Real-time Noise Levels**: View noise levels of specific locations in real-time.
-- **Interactive Map**: See color-coded markers on an interactive map based on noise intensity.
-- **Quiet Spot Recommendations**: Get recommendations for nearby quiet spots like parks or libraries.
+## Technologies Used
+- **Frontend**: HTML, CSS, JavaScript
+- **APIs**:
+  	-OpenStreetMap (via Leaflet.js): This is used for map rendering and adding markers.
+	-World Air Quality Index API (WAQI): Used to fetch air quality data.
+	-Nominatim API (from OpenStreetMap): Used to geocode the user’s input location.
 
-## Getting Started
 
-### Prerequisites
+## How It Works
+1. **User Input**: Enter a starting location to search for cleaner air spots.
+2. **Air Quality Data Fetching**: The app retrieves real-time air quality data for the specified area.
+3. **List Generation**: Displays a list of cleaner locations with details like distance and a navigation link.
+4. **Google Maps Integration**: Click the navigation link to open Google Maps and start navigating from the entered location.
 
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Internet connection
-
-### Installation
-
+## Setup Instructions
 1. Clone the repository:
-    ```sh
-    git clone https://github.com/yourusername/tranquillity.git
-    ```
+   ```bash
+   git clone https://github.com/your-repo/clean-air-locator.git
+   ```
 2. Navigate to the project directory:
-    ```sh
-    cd tranquillity
-    ```
+   ```bash
+   cd clean-air-locator
+   ```
+3. Open `index.html` in a web browser to run the app.
+4. Make sure to update the API keys in the JavaScript file (if required).
 
-### Usage
+## Future Enhancements
+- Add graphical visualizations for air quality trends.
+- Integrate additional environmental data like noise levels and temperature.
+- Enhance the UI with filters for customizing search results.
 
-1. Open [index.html](http://_vscodecontentref_/1) in your web browser.
-2. Click on "Find My Location" to get your current location and view the noise levels.
-3. Enter a location in the input box and click "Check Noise Level" to view the noise levels of that location.
+## License
+This project is licensed under the [MIT License](LICENSE).
 
-### API Keys
+---
 
-This project uses the following APIs:
-- **NoiseAPI**: To fetch noise data.
-- **OpenCage Geocoding API**: To convert location names to coordinates.
-- **Google Places API**: To find nearby quiet places.
-
-Replace the placeholder API keys in [index.js](http://_vscodecontentref_/2) with your own API keys.
-
-### Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-### License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-### Acknowledgements
-
-- [Leaflet](https://leafletjs.com/) for the interactive map.
-- [OpenStreetMap](https://www.openstreetmap.org/) for map tiles.
+Feel free to contribute to the project by submitting pull requests or reporting issues!

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiet Place Finder</title>
+    <title>Air Quality Finder</title>
     <link rel="stylesheet" href="stylesheets/index.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-    <h2>Find a Quiet Place Near You</h2>
+    <h2>Find the Air Quality Near You</h2>
     
     <button onclick="getLocation()">Find My Location</button>
     <br>
@@ -18,13 +18,13 @@
         <button onclick="goToEnteredLocation()">Go to Location</button>
     </div>
 
-    <button onclick="fetchNoiseForLocation()">Check Noise Level</button>
-    <button onclick="findQuietPlaces()">Find Quiet Places</button>
+    <button onclick="fetchAirQualityForLocation()">Check Air Quality</button>
+    <button onclick="findCleanAirLocations()">Find Clean Air Places Near</button>
     
     <div id="map"></div>
 
     <footer>
-        <p>&copy; 2025 Quiet Place Finder. All Rights Reserved.</p>
+        <p>&copy; 2025 Air Quality Finder. All Rights Reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
